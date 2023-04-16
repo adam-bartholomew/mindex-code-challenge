@@ -1,0 +1,27 @@
+NOTES:
+1. I had the issue stated below with gradle and spring boot which prevented me from launching the application. I documented what I did to resolve it so I could proceed.
+2. For task 2 I assumed Date would be sufficient for the effectiveDate field.
+3. For task 2 I attempted passing in an employee object for the compensation API endpoint but it wasn't working, so I changed compensation to take and hold the employeeId rather than the entire employee object. 
+When making a request, pass in the compensation object as {employeeId, salary, date}:
+	{"employeeId": "16a596ae-edd3-4847-99fe-c4518e82c86f", "salary":"50", "effectiveDate":"2022-04-16"}
+
+---------
+ERROR:
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\adamb\OneDrive\Documents\Jobs\Mindex\mindex-java-code-challenge\mindex-java-code-challenge\build.gradle'
+
+* What went wrong:
+Could not compile build file 'C:\Users\adamb\OneDrive\Documents\Jobs\Mindex\mindex-java-code-challenge\mindex-java-code-challenge\build.gradle'.
+> startup failed:
+  General error during semantic analysis: Unsupported class file major version 61
+
+  java.lang.IllegalArgumentException: Unsupported class file major version 61
+
+CAUSE:
+The gradle version of the project was not correct for the local version of Java I had installed -- 17.2. I needed to change the version of Java or Gradle I was using so that they would be compatible.
+
+SOLUTION:
+Update the gradle-wrapper.properties distributionUrl to be a gradle version that is supported by the version of Java I have.
+  - distributionUrl=https\://services.gradle.org/distributions/gradle-7.3-bin.zip.
