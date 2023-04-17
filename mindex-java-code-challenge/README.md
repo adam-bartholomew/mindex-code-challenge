@@ -11,7 +11,7 @@ The application may be executed by running `gradlew bootRun`.
 ### How to Use
 The following endpoints are available to use:
 ```
-* CREATE 
+* CREATE
     * HTTP Method: POST 
     * URL: localhost:8080/employee
     * PAYLOAD: Employee
